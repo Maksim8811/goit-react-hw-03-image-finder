@@ -1,28 +1,43 @@
 import React, {Component} from "react";
 import "./Searchbar.css"
+import  {toast}  from 'react-toastify';
+
 
 class Searchbar extends Component {
 
-    Red = e => {
-        e.preventDefault()
-        console.log(e.target.value)
+    state = {
+        searchForm: "",
+    }
+
+    handleChange = evt => {
+        this.setState({searchForm: evt.currentTarget.value.toLowerCase()})
+    }
+
+    handleSubmit = evt => {
+        evt.preventDefault()
+        if(this.state.searchForm.trim() === "") {
+            toast.error("Enter your search!")
+            return
+        }
+        this.props.onSubmit(this.state.searchForm)
     }
 
     render() {
         return(
             <div className="Searchbar">
-    <header class="searchbar">
-            <form class="form" onSubmit={this.Red}>
-            <button type="submit" class="button">
-            <span class="button-label">Search</span>
+            <header className="searchbar">
+            <form onSubmit={this.handleSubmit} className="form">
+            <button type="submit" className="button">
+            <span className="button-label">Search</span>
     </button>
 
     <input
-      class="input"
+      className="input"
       type="text"
-      autocomplete="off"
-      autofocus
-      placeholder="Search images and photos"
+      autoComplete="off"
+      autoFocus
+      placeHolder="Search images and photos"
+      onChange={this.handleChange}
     />
   </form>
 </header>
