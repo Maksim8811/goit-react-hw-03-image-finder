@@ -12,20 +12,15 @@ class ImageGallery extends Component {
      componentDidUpdate (prevProps, prevState) {
         if(prevProps !== this.props.searchName) {
           axios.get(`https://pixabay.com/api/?key=31290162-40f32dd3366e200868c1207df&q=${this.props.searchName}&image_type=photo&per_page=3`)
-          .then((res) => 
-            this.setState({search: res.data.hits})
-            )
-        .catch(() => {console.log('ERROR')})
+          .then(res => this.setState({search: res.data.hits}))
+          .catch(() => {console.log('ERROR')})
        }
         }
 
     render() {
     return (
         <div>
-            {this.state.search &&  <ul className="image">
-            <li>{4-9}</li>
-<li>{this.state.search[0].id}</li>
-        </ul>}
+            {this.state.search &&  <ul className="image"></ul>}
         </div>
        
     )

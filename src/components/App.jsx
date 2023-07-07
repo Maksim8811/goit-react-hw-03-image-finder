@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import Searchbar from "./Searchbar/Searchbar"
 import ImageGallery from "./ImageGallery/ImageGallery"
+import ImageGalleryItem from "./ImageGalleryItem/ImageGalleryItem"
 import "./App.css"
 
 import { ToastContainer } from 'react-toastify';
@@ -19,12 +20,17 @@ class App extends Component {
     this.setState({searchForm: `${nameSearch}`})
   }
 
+  addMasiveObj = masive => {
+    this.setState({search: masive})
+  }
+
   
     render () {
     return (
       <div className="App">
       <Searchbar onSubmit={this.onSubmitForm}/>
       <ImageGallery searchName={this.state.searchForm}/>
+      <ImageGalleryItem />
       <ToastContainer/>
       </div>
       )
