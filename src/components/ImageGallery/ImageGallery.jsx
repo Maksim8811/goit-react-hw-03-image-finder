@@ -20,7 +20,15 @@ class ImageGallery extends Component {
     render() {
     return (
         <div>
-            {this.state.search &&  <ul className="image"></ul>}
+            {this.state.search &&  <ul className="image">
+                {this.state.search.map(item => {
+                    return (
+                        <li>
+                            <img src={item.webformatURL} alt={item.tags} key={item.id}/>    
+                        </li>
+                    )
+                })}
+                </ul>}
         </div>
        
     )
