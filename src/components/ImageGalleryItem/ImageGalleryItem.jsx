@@ -1,18 +1,19 @@
-import React, {Component} from "react";
+import React from "react";
 
-class ImageGalleryItem extends Component {
+ const ImageGalleryItem = ({image}) => {
 
-state = {
-    masiveObj: null,
-}
-
-
-    render() {
         return (
-            console.log(this.state.masiveObj)
+    
+                    <li>
+                        <img 
+                        src={image.webformatURL} 
+                        alt={image.tags} />  
+                        <h2>{image.id}</h2>  
+                    </li>
+                    
+        
+            
         )
     }
-    
-}
 
 export default ImageGalleryItem
