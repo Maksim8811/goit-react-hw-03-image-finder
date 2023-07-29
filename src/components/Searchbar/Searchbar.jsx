@@ -50,7 +50,7 @@ class Searchbar extends Component {
 }
 
 Searchbar.propTypes = {
-    searchForm: PropTypes.string.isRequired,
+    searchForm: PropTypes.string,
 }
 
 export default Searchbar
