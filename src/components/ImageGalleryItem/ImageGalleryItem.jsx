@@ -18,8 +18,7 @@ import PropTypes from "prop-types"
     ImageGalleryItem.propTypes = {
         image: PropTypes.shape({
             largeImageURL: PropTypes.string.isRequired,
-            tags: PropTypes.string.isRequired, 
-            largeImageURL: PropTypes.string.isRequired,  
+            tags: PropTypes.string.isRequired,   
             }
         ),
         onImageClick: PropTypes.func,
